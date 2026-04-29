@@ -1,0 +1,738 @@
+[
+    {
+        "id": "2cadfa1aee21fc4f",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d92ed516c96ec006",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "1bcbe5e524fda682",
+        "type": "ui_tab",
+        "name": "Smart Lighting",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "ec2692bccc7cc4fc",
+        "type": "ui_group",
+        "name": "Light Sensor",
+        "tab": "1bcbe5e524fda682",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "0643bfa94ce60c41",
+        "type": "ui_group",
+        "name": "AI Control",
+        "tab": "1bcbe5e524fda682",
+        "order": 2,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a3783dd3fbef7d31",
+        "type": "ui_group",
+        "name": "Alerts & Energy",
+        "tab": "1bcbe5e524fda682",
+        "order": 3,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "263c30826030ea6c",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "mqtt",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "561519fb7b5328fe",
+        "type": "mqtt in",
+        "z": "2cadfa1aee21fc4f",
+        "name": "Light Sensor Data",
+        "topic": "sensors/group17/lighting/data",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "263c30826030ea6c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 140,
+        "wires": [
+            [
+                "07941d47a4d57650"
+            ]
+        ]
+    },
+    {
+        "id": "07941d47a4d57650",
+        "type": "json",
+        "z": "2cadfa1aee21fc4f",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 370,
+        "y": 140,
+        "wires": [
+            [
+                "4936fc8f5b13035d",
+                "3fe37740f95f9a37"
+            ]
+        ]
+    },
+    {
+        "id": "0443a8af27854212",
+        "type": "ui_gauge",
+        "z": "2cadfa1aee21fc4f",
+        "name": "",
+        "group": "ec2692bccc7cc4fc",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Ambient Light",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "1000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 580,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "58f15c04c85c2f68",
+        "type": "ui_chart",
+        "z": "2cadfa1aee21fc4f",
+        "name": "",
+        "group": "ec2692bccc7cc4fc",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Lux Over Time",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "1",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 580,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8e9a6e1675df4c0b",
+        "type": "mqtt in",
+        "z": "2cadfa1aee21fc4f",
+        "name": "AI Command",
+        "topic": "sensors/group17/lighting/command",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "263c30826030ea6c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 260,
+        "wires": [
+            [
+                "e4a0fbad90fafa73"
+            ]
+        ]
+    },
+    {
+        "id": "e4a0fbad90fafa73",
+        "type": "json",
+        "z": "2cadfa1aee21fc4f",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 190,
+        "y": 320,
+        "wires": [
+            [
+                "fb48881c5f74869c",
+                "f47d11065cca6a12",
+                "49197519a89776ef"
+            ]
+        ]
+    },
+    {
+        "id": "777b0ae5483261c9",
+        "type": "ui_gauge",
+        "z": "2cadfa1aee21fc4f",
+        "name": "",
+        "group": "0643bfa94ce60c41",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Brightness Level",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 630,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "11bd735e72fc3769",
+        "type": "ui_text",
+        "z": "2cadfa1aee21fc4f",
+        "group": "0643bfa94ce60c41",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Occupancy",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 610,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "f851e20f0b96394c",
+        "type": "ui_text",
+        "z": "2cadfa1aee21fc4f",
+        "group": "0643bfa94ce60c41",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Scene",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 590,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "2e2436e66211ca7a",
+        "type": "mqtt in",
+        "z": "2cadfa1aee21fc4f",
+        "name": "Alert Data",
+        "topic": "alerts/group17/lighting/status",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "263c30826030ea6c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 460,
+        "wires": [
+            [
+                "9369ea7eab5b9454"
+            ]
+        ]
+    },
+    {
+        "id": "9369ea7eab5b9454",
+        "type": "json",
+        "z": "2cadfa1aee21fc4f",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 370,
+        "y": 460,
+        "wires": [
+            [
+                "291f85a76e8c81df"
+            ]
+        ]
+    },
+    {
+        "id": "348eae5f76a07378",
+        "type": "ui_text",
+        "z": "2cadfa1aee21fc4f",
+        "group": "a3783dd3fbef7d31",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Alert Status",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 630,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "602cba0f2ee7fc6d",
+        "type": "mqtt in",
+        "z": "2cadfa1aee21fc4f",
+        "name": "Energy Data",
+        "topic": "sensors/group17/lighting/energy",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "263c30826030ea6c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 700,
+        "wires": [
+            [
+                "bb0fe1d965d9de39"
+            ]
+        ]
+    },
+    {
+        "id": "bb0fe1d965d9de39",
+        "type": "json",
+        "z": "2cadfa1aee21fc4f",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 370,
+        "y": 700,
+        "wires": [
+            [
+                "b26154f34109f62c",
+                "381c1b032ff021fc"
+            ]
+        ]
+    },
+    {
+        "id": "43c4310abf02ad72",
+        "type": "ui_gauge",
+        "z": "2cadfa1aee21fc4f",
+        "name": "",
+        "group": "a3783dd3fbef7d31",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Energy Saved",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 600,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "8ce5bc190b2728a1",
+        "type": "ui_text",
+        "z": "2cadfa1aee21fc4f",
+        "group": "a3783dd3fbef7d31",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Watts Saved",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 590,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "4936fc8f5b13035d",
+        "type": "function",
+        "z": "2cadfa1aee21fc4f",
+        "name": "Extract Lux",
+        "func": "msg.payload = msg.payload.lux;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 40,
+        "wires": [
+            [
+                "0443a8af27854212"
+            ]
+        ]
+    },
+    {
+        "id": "fb48881c5f74869c",
+        "type": "function",
+        "z": "2cadfa1aee21fc4f",
+        "name": "Extract Brightness",
+        "func": "msg.payload = msg.payload.brightness_pct;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 260,
+        "wires": [
+            [
+                "777b0ae5483261c9"
+            ]
+        ]
+    },
+    {
+        "id": "f47d11065cca6a12",
+        "type": "function",
+        "z": "2cadfa1aee21fc4f",
+        "name": "Extract Occupancy",
+        "func": "msg.payload = msg.payload.occupancy;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 380,
+        "wires": [
+            [
+                "11bd735e72fc3769",
+                "cb77feaff56e31a9"
+            ]
+        ]
+    },
+    {
+        "id": "49197519a89776ef",
+        "type": "function",
+        "z": "2cadfa1aee21fc4f",
+        "name": "Extract Scene",
+        "func": "msg.payload = msg.payload.scene;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 320,
+        "wires": [
+            [
+                "f851e20f0b96394c",
+                "5505c111ce6f347d"
+            ]
+        ]
+    },
+    {
+        "id": "291f85a76e8c81df",
+        "type": "function",
+        "z": "2cadfa1aee21fc4f",
+        "name": "Extract Alert",
+        "func": "msg.payload = msg.payload.reason;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 520,
+        "wires": [
+            [
+                "348eae5f76a07378"
+            ]
+        ]
+    },
+    {
+        "id": "381c1b032ff021fc",
+        "type": "function",
+        "z": "2cadfa1aee21fc4f",
+        "name": "Extract Energy Pct",
+        "func": "msg.payload = msg.payload.saving_pct;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 640,
+        "wires": [
+            [
+                "43c4310abf02ad72"
+            ]
+        ]
+    },
+    {
+        "id": "b26154f34109f62c",
+        "type": "function",
+        "z": "2cadfa1aee21fc4f",
+        "name": "Extract Watts",
+        "func": "msg.payload = (msg.payload.saved_watts) + \" W\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 780,
+        "wires": [
+            [
+                "8ce5bc190b2728a1"
+            ]
+        ]
+    },
+    {
+        "id": "3fe37740f95f9a37",
+        "type": "function",
+        "z": "2cadfa1aee21fc4f",
+        "name": "Extract Lux Chart",
+        "func": "msg.payload = msg.payload.lux;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 200,
+        "wires": [
+            [
+                "58f15c04c85c2f68"
+            ]
+        ]
+    },
+    {
+        "id": "5505c111ce6f347d",
+        "type": "debug",
+        "z": "2cadfa1aee21fc4f",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "cb77feaff56e31a9",
+        "type": "debug",
+        "z": "2cadfa1aee21fc4f",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 380,
+        "wires": []
+    }
+]

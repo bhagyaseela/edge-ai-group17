@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+
+# Node-RED
+node-red/node_modules/
+node-red/.config*
+node-red/context/
+node-red/logs/
+
+# Docker
+.docker/
+
+# Environment
+.env
+*.env
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+logs/
