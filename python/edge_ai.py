@@ -3,6 +3,7 @@ import time
 import numpy as np
 import paho.mqtt.client as mqtt
 from collections import deque
+from sklearn.ensemble import RandomForestClassifier
 
 # ─── Configuration ───────────────────────────────────────────
 BROKER      = "mqtt"
