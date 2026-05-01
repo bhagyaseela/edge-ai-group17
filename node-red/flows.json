@@ -301,7 +301,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 130,
-        "y": 260,
+        "y": 380,
         "wires": [
             [
                 "e4a0fbad90fafa73"
@@ -317,12 +317,13 @@
         "action": "obj",
         "pretty": false,
         "x": 190,
-        "y": 320,
+        "y": 440,
         "wires": [
             [
                 "fb48881c5f74869c",
                 "f47d11065cca6a12",
-                "49197519a89776ef"
+                "49197519a89776ef",
+                "0f116e867f015c21"
             ]
         ]
     },
@@ -351,7 +352,7 @@
         "diff": false,
         "className": "",
         "x": 630,
-        "y": 260,
+        "y": 380,
         "wires": []
     },
     {
@@ -372,7 +373,7 @@
         "fontSize": 16,
         "color": "#000000",
         "x": 610,
-        "y": 420,
+        "y": 540,
         "wires": []
     },
     {
@@ -393,7 +394,7 @@
         "fontSize": 16,
         "color": "#000000",
         "x": 590,
-        "y": 340,
+        "y": 460,
         "wires": []
     },
     {
@@ -410,7 +411,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 160,
-        "y": 460,
+        "y": 640,
         "wires": [
             [
                 "9369ea7eab5b9454"
@@ -426,7 +427,7 @@
         "action": "obj",
         "pretty": false,
         "x": 370,
-        "y": 460,
+        "y": 640,
         "wires": [
             [
                 "291f85a76e8c81df"
@@ -451,7 +452,7 @@
         "fontSize": 16,
         "color": "#000000",
         "x": 630,
-        "y": 560,
+        "y": 740,
         "wires": []
     },
     {
@@ -468,7 +469,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 170,
-        "y": 700,
+        "y": 880,
         "wires": [
             [
                 "bb0fe1d965d9de39"
@@ -484,11 +485,12 @@
         "action": "obj",
         "pretty": false,
         "x": 370,
-        "y": 700,
+        "y": 880,
         "wires": [
             [
                 "b26154f34109f62c",
-                "381c1b032ff021fc"
+                "381c1b032ff021fc",
+                "8407f146f2148caa"
             ]
         ]
     },
@@ -517,7 +519,7 @@
         "diff": false,
         "className": "",
         "x": 600,
-        "y": 680,
+        "y": 860,
         "wires": []
     },
     {
@@ -538,7 +540,7 @@
         "fontSize": 16,
         "color": "#000000",
         "x": 590,
-        "y": 740,
+        "y": 920,
         "wires": []
     },
     {
@@ -574,7 +576,7 @@
         "finalize": "",
         "libs": [],
         "x": 390,
-        "y": 260,
+        "y": 380,
         "wires": [
             [
                 "777b0ae5483261c9"
@@ -594,7 +596,7 @@
         "finalize": "",
         "libs": [],
         "x": 390,
-        "y": 380,
+        "y": 500,
         "wires": [
             [
                 "11bd735e72fc3769",
@@ -615,7 +617,7 @@
         "finalize": "",
         "libs": [],
         "x": 380,
-        "y": 320,
+        "y": 440,
         "wires": [
             [
                 "f851e20f0b96394c",
@@ -636,7 +638,7 @@
         "finalize": "",
         "libs": [],
         "x": 470,
-        "y": 520,
+        "y": 700,
         "wires": [
             [
                 "348eae5f76a07378"
@@ -648,7 +650,7 @@
         "type": "function",
         "z": "2cadfa1aee21fc4f",
         "name": "Extract Energy Pct",
-        "func": "msg.payload = msg.payload.saving_pct;\nreturn msg;",
+        "func": "msg.payload = msg.payload.overall_saving_pct;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -656,7 +658,7 @@
         "finalize": "",
         "libs": [],
         "x": 490,
-        "y": 640,
+        "y": 820,
         "wires": [
             [
                 "43c4310abf02ad72"
@@ -676,7 +678,7 @@
         "finalize": "",
         "libs": [],
         "x": 470,
-        "y": 780,
+        "y": 960,
         "wires": [
             [
                 "8ce5bc190b2728a1"
@@ -716,7 +718,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 600,
-        "y": 300,
+        "y": 420,
         "wires": []
     },
     {
@@ -732,7 +734,135 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 600,
-        "y": 380,
+        "y": 500,
         "wires": []
+    },
+    {
+        "id": "a573d5d038b9ba47",
+        "type": "ui_chart",
+        "z": "2cadfa1aee21fc4f",
+        "name": "",
+        "group": "0643bfa94ce60c41",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "Brightness Over Time",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 640,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0f116e867f015c21",
+        "type": "function",
+        "z": "2cadfa1aee21fc4f",
+        "name": "Extract Brightness Chart",
+        "func": "msg.payload = msg.payload.brightness_pct;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 320,
+        "wires": [
+            [
+                "a573d5d038b9ba47"
+            ]
+        ]
+    },
+    {
+        "id": "8407f146f2148caa",
+        "type": "function",
+        "z": "2cadfa1aee21fc4f",
+        "name": "Extract Energy Chart",
+        "func": "msg.payload = msg.payload.overall_saving_pct;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 1020,
+        "wires": [
+            [
+                "468b5d9442174b91"
+            ]
+        ]
+    },
+    {
+        "id": "468b5d9442174b91",
+        "type": "ui_chart",
+        "z": "2cadfa1aee21fc4f",
+        "name": "",
+        "group": "a3783dd3fbef7d31",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "Energy Saved Over Time",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 650,
+        "y": 1100,
+        "wires": [
+            []
+        ]
     }
 ]
