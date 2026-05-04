@@ -261,9 +261,9 @@
         "dot": false,
         "ymin": "",
         "ymax": "",
-        "removeOlder": "1",
+        "removeOlder": "36",
         "removeOlderPoints": "",
-        "removeOlderUnit": "3600",
+        "removeOlderUnit": "60",
         "cutout": 0,
         "useOneColor": false,
         "useUTC": false,
@@ -323,7 +323,8 @@
                 "fb48881c5f74869c",
                 "f47d11065cca6a12",
                 "49197519a89776ef",
-                "0f116e867f015c21"
+                "0f116e867f015c21",
+                "dfd0b8d6aec4c3d3"
             ]
         ]
     },
@@ -755,9 +756,9 @@
         "dot": false,
         "ymin": "",
         "ymax": "",
-        "removeOlder": 1,
+        "removeOlder": "36",
         "removeOlderPoints": "",
-        "removeOlderUnit": "3600",
+        "removeOlderUnit": "60",
         "cutout": 0,
         "useOneColor": false,
         "useUTC": false,
@@ -839,9 +840,9 @@
         "dot": false,
         "ymin": "",
         "ymax": "",
-        "removeOlder": 1,
+        "removeOlder": "36",
         "removeOlderPoints": "",
-        "removeOlderUnit": "3600",
+        "removeOlderUnit": "60",
         "cutout": 0,
         "useOneColor": false,
         "useUTC": false,
@@ -861,6 +862,70 @@
         "className": "",
         "x": 650,
         "y": 1100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dfd0b8d6aec4c3d3",
+        "type": "function",
+        "z": "2cadfa1aee21fc4f",
+        "name": "Occupancy to Number",
+        "func": "if (msg.payload.occupancy === \"occupied\") {\n    msg.payload = 1;\n} else if (msg.payload.occupancy === \"empty\") {\n    msg.payload = 0;\n} else {\n    msg.payload = 0;\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 280,
+        "wires": [
+            [
+                "9c24b330924636dd"
+            ]
+        ]
+    },
+    {
+        "id": "9c24b330924636dd",
+        "type": "ui_chart",
+        "z": "2cadfa1aee21fc4f",
+        "name": "",
+        "group": "0643bfa94ce60c41",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "label": "Occupancy Status",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "36",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 610,
+        "y": 280,
         "wires": [
             []
         ]
